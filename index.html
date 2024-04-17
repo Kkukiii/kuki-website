@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        background-image:url("cu.jpg");
+      
+    }
+
+    #registrationForm {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #registrationForm h2 {
+        text-align: center;
+    }
+
+    #registrationForm div {
+        margin-bottom: 10px;
+    }
+
+    #registrationForm label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    #registrationForm input[type="text"],
+    #registrationForm input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #registrationForm .error {
+        color: red;
+        display: none;
+    }
+
+    #registrationForm button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #registrationForm button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<div id="registrationForm">
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error" id="nameError">Name is required</span>
+        </div>
+        <div>
+            <label for="class">Class:</label>
+            <input type="text" id="class" name="class" required>
+            <span class="error" id="classError">Class is required</span>
+        </div>
+        <div>
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" required>
+            <span class="error" id="sectionError">Section is required</span>
+        </div>
+        <div>
+            <label for="group">Group:</label>
+            <input type="text" id="group" name="group">
+            <span class="error" id="groupError"></span>
+        </div>
+        <div>
+            <label for="uid">UID:</label>
+            <input type="text" id="uid" name="uid" required>
+            <span class="error" id="uidError">UID is required</span>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError">Email is required</span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var className = document.getElementById('class').value;
+        var section = document.getElementById('section').value;
+        var uid = document.getElementById('uid').value;
+        var email = document.getElementById('email').value;
+
+        // Name validation
+        if (!name) {
+            document.getElementById('Jyoti').style.display = 'block';
+            return false;
+        }
+
+        // Class validation
+        if (!className) {
+            document.getElementById('23bca').style.display = 'block';
+            return false;
+        }
+
+        // Section validation
+        if (!section) {
+            document.getElementById('23bca-1').style.display = 'block';
+            return false;
+        }
+
+        // UID validation
+        if (!uid) {
+            document.getElementById('23bca10071').style.display = 'block';
+            return false;
+        }
+
+        // Email validation
+        if (!email) {
+            document.getElementById('jyotisingh110405@gmail.com').style.display = 'block';
+            return false;
+        } else if (!isValidEmail(email)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+
+        // All validations passed
+        alert('Form submitted successfully!');
+        return true;
+    }
+
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
+</body>
+</html>
